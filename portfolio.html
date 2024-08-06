@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Kanakamahalakshmi Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d8f4d9; /* Replace with your image URL */
+          
+    padding: 20px; /* Optional: adjust padding as needed */
+     /* Optional: change text color for better visibility against the background */
+            
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #FFD700;
+        }
+        .sliding-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 30px; /* Reduced gap */
+            padding: 30px;
+            background-color: #fff;
+        }
+        .sliding-gallery img {
+            flex: none;
+            width: 250px;
+            height: 250px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+            animation: blink 1.5s infinite; /* Blinking animation */
+        }
+        
+        
+        .sliding-gallery img:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Adjust gap to ensure consistent spacing */
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+}
+
+.home-text p {
+    margin: 0; /* Remove default margin */
+}
+
+.home-avatar {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+        .section {
+            width: 100%;
+            text-align: center;
+          
+          
+    padding: 20px; /* Optional: adjust padding as needed */
+     /* Optional: change text color for better visibility against the background */
+            
+        }
+        h2 {
+            color: #4CAF50;
+            position: relative;
+            animation: slide-in 1s forwards;
+        }
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: calc(25% - 5px); /* 4 images per line */
+            height: auto;
+        }
+        .social {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #4CAF50;
+            font-size: 2em;
+            transition: color 0.3s ease;
+        }
+        .social a:hover {
+            color: #FFD700;
+        }
+        .education-container {
+            display: flex;
+            padding: 20px;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+        }
+        .education-cards {
+            display: flex;
+            gap: 10px; /* Reduced gap */
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .education-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px; /* Reduced margin */
+    text-align: left;
+    transition: transform 0.5s ease, background-color 0.5s ease, border 0.5s ease;
+    border: 2px solid #4CAF50; /* Highlighted border */
+    opacity: 1; /* Make all visible by default */
+    animation: slide-up 1s forwards; /* New animation */
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+        .education-card.active {
+            opacity: 1;
+            transform: translateY(0);
+            background-color: #e0f7fa; /* Highlighted background */
+        }
+        .skill-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: 10px auto;
+            animation: fade-in 1s forwards;
+            transition: transform 0.5s ease, border 0.5s ease, background-color 0.5s ease;
+            border: 2px solid #4CAF50; /* Highlighted border */
+        }
+        .skill-box.active {
+            transform: scale(1.05);
+            background-color: #e0f7fa; /* Highlighted background on hover */
+        }
+        .skill-box i {
+            font-size: 2em;
+            margin-right: 20px;
+            color: #4CAF50;
+        }
+        .contact {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            background-color: #fff; /* Changed background to white */
+            color: #000;
+            border-radius: 5px;
+            border: 1px solid #0af13c;
+            padding: 20px;
+        }
+        .contact .details, .contact .form {
+            background: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            margin: 10px; /* Reduced margin */
+            text-align: left;
+        }
+        .contact .form input, .contact .form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #0af13c;
+        }
+        .contact .form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact .form button:hover {
+            background: #45A049;
+        }
+        .project-box {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 10px; /* Reduced margin */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+            border: 2px solid #4CAF50; /* Highlighted border */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .project-box.active {
+            opacity: 1;
+            transform: translateY(0);
+            background-color: #c3eecb; /* Highlighted background on hover */
+        }
+        .project-box i {
+            font-size: 2em;
+            margin-right: 20px;
+            color: #4CAF50;
+        }
+        .project-box:nth-of-type(1) {
+            animation: project-display 1s forwards 0.4s; /* Staggered animation */
+        }
+        .project-box:nth-of-type(2) {
+            animation: project-display 1s forwards 0.8s; /* Staggered animation */
+        }
+        .project-box:nth-of-type(3) {
+            animation: project-display 1s forwards 10.0s; /* Staggered animation */
+        }
+        @keyframes project-display {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>K. Kanakamahalakshmi</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+   
+    <div class="container" id="home">
+        <section class=" home-section">
+            <div class="home-text">
+                <p style="font-size: 2em; font-weight: bold;">Hi,</p>
+                <p style="font-size: 2em; font-weight: bold; color: green;">I am K. Kanakamahalakshmi</p>
+                <p style="font-size: 1.5em; font-weight: bold;">App Developer, Web Developer</p>
+            </div>
+            <img src="https://i.ibb.co/tMzT3Vx/PROFILE.jpg" alt="PROFILE" " alt="Avatar" class="home-avatar">
+        </section>
+    </div>
+    
+        
+        
+    </div>
+    <div class="container" id="about">
+        <section class="section">
+            <h2>About Me</h2>
+            <p>Hi there! I'm K. Kanakamahalakshmi, a driven and passionate individual with a deep love for technology and development. 
+                I thrive on challenges and constantly set goals for myself to achieve greater heights. My interests lie in creating impactful 
+                and efficient solutions through coding and design. When I'm not coding, you can find me exploring new technologies or enjoying
+                 a good book. I believe in lifelong learning and continuously seek to improve my skills and knowledge. Join me as I embark on 
+                 my journey to make a mark in the tech world.</p>
+            <h2>Projects</h2>
+            <div class="section" style="display: flex; justify-content: center; flex-wrap: wrap;">
+                <div class="project-box">
+                    <i class="fas fa-calendar-day"></i>
+                    <div>
+                        <h3>Leave Management App</h3>
+                        <p>A comprehensive application for managing leave requests with an intuitive interface and robust features.</p>
+                    </div>
+                </div>
+                <div class="project-box">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <h3>Online Bookstore Website</h3>
+                        <p>A full-featured e-commerce website for purchasing books online, with secure payment and user-friendly navigation.</p>
+                    </div>
+                </div>
+                <div class="project-box">
+                    <a href="https://github.com/Kalisettykanakamahalakshmi/womensafetyapp" target="_blank" style="color: black; text-decoration: none;">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>Women Safety App</h3>
+                            <p>An app designed to enhance the safety of women through real-time alerts and emergency services.</p>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+    <div class="container" id="education">
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-cards">
+                    <div class="education-card tenth" id="tenth" onclick="toggleEducation('tenth')">
+                        <h3>10th Class</h3>
+                        <p><strong>School:</strong> Srinivas School</p>
+                        <p><strong>Score:</strong> 10 points</p>
+                    </div>
+                    <div class="education-card inter" id="inter" onclick="toggleEducation('inter')">
+                        <h3>Intermediate</h3>
+                        <p><strong>College:</strong> Sri Chaitanya College</p>
+                        <p><strong>Score:</strong> 96%</p>
+                    </div>
+                    <div class="education-card engineering" id="engineering" onclick="toggleEducation('engineering')">
+                        <h3>Engineering</h3>
+                        <p><strong>Degree:</strong> B.Tech</p>
+                        <p><strong>Year:</strong> Pursuing 4th year</p>
+                        <p><strong>CGPA:</strong> 9.6</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="skills">
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skill-box" onclick="toggleSkill(this)">
+                <i class="fab fa-android"></i>
+                <div>
+                    <h3>Android App Development</h3>
+                    <p>Proficient in developing Android applications using Android Studio. Completed one Android app with a focus on user experience and functionality.</p>
+                </div>
+            </div>
+            <div class="skill-box" onclick="toggleSkill(this)">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>Web Development</h3>
+                    <p>Skilled in full-stack web development, with experience in HTML, CSS, JavaScript, and PHP. Developed a complete website from scratch.</p>
+                </div>
+            </div>
+            <div class="skill-box" onclick="toggleSkill(this)">
+                <i class="fas fa-paint-brush"></i>
+                <div>
+                    <h3>UI/UX Design</h3>
+                    <p>Strong understanding of user interface and user experience design principles. Adept at creating intuitive and visually appealing designs.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="sliding-gallery" id="gallery">
+        <img src="https://i.ibb.co/9pYLq5B/kavach.jpg" alt="Photo 1">
+        <img src="https://i.ibb.co/Jpn52HB/smart-parking.jpg" alt="Photo 2">
+        <img src="https://i.ibb.co/hDkzfbk/app-development.jpg" alt="Photo 3">
+        <img src="https://i.ibb.co/ZY6vzkr/Whats-App-Image-2024-08-06-at-1-04-12-AM.jpg" alt="Photo 4">
+        <img src="https://i.ibb.co/WsbHF1x/hhkavach.jpg" alt="phto 5">
+    </div>
+    <div class="container" id="contact">
+        <section class="section">
+            <div class="contact">
+                <div class="details">
+                    <h3>Contact Me</h3>
+                    <p><i class="fas fa-phone-alt"></i> 9347868707</p>
+                    <p><i class="fas fa-envelope"></i> 21nu1a0550@nsrit.edu.in</p>
+                    <div class="social">
+                        <a href="https://twitter.com/yourprofile" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kalisetty-kanakamahalakshmi-546513286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/yourprofile" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/yourprofile" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="form">
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        function toggleEducation(id) {
+            document.querySelectorAll('.education-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+
+        function toggleSkill(element) {
+            document.querySelectorAll('.skill-box').forEach(box => {
+                box.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Function to add 'active' class to project boxes
+        function activateProjects() {
+            document.querySelectorAll('.project-box').forEach((box, index) => {
+                setTimeout(() => {
+                    box.classList.add('active');
+                }, index * 200); // Staggered effect
+            });
+        }
+
+        // Call the function to activate project boxes when the page loads
+        document.addEventListener('DOMContentLoaded', activateProjects);
+    </script>
+</body>
+</html>
